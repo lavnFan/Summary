@@ -44,7 +44,7 @@ git push remote_repository loacl_branch:remote_branch
 **常用的格式如下** 
 
 * git push orgin master:refs/for/master  提交本地的master分支的修改到远程库origin的refs/for/master 分支
-* git push yunos HEAD:refs/for/kphone_6572_k268 提交本地库当前分支的修改到远程库yunos的refs/for/kphone_6572_k268
+* git push yunos HEAD:refs/for/kphone_6572_k268 提交本地库当前分支的修改到远程库的refs/for/kphone_6572_k268
 
 #### git log
 常用的几种组合是   
@@ -88,7 +88,6 @@ git checkout -- a.txt
 ## repo
 ### 1、repo init
 格式为 repo init -u repository_url -b branch_name   
-repo init -u ssh://hangtao.yht@gerrit2.alibaba-inc.com:29418/repo/yunos/kphone_k268
 
 #### 2、同步代码 repo sync
 同步代码到本地，如果本地代码中有修改或未push的新提交，可能会repo sync失败。   
@@ -133,7 +132,7 @@ git clean -df 清除掉working directory中的untracked file and directories。�
 
 ### 6、代码提交到Gerrit
 #### 方法一、git push命令。   
-git push yunos HEAD:refs/for/kphone_6572_k268   
+git push HEAD:refs/for/kphone_6572_k268   
 但这种方法需要知道远程分支的参数，容易出错，建议使用repo upload
 #### 方法二、repo upload
 使用repo upload可能会出现提交失败的情况，常见的错误原因有两种，一是在没有使用repo start命令创建本地分支，另外一种是执行repo upload后打开的窗口中要去掉提交的project前的注释#号。 
@@ -144,23 +143,4 @@ git push yunos HEAD:refs/for/kphone_6572_k268
 * git中的哪些版本记录数据放哪里了？在.repo目录，这个目录的大小可能是整套代码的1/2。在代码目录下也有一些.git目录，但是里面的大部分文件和目录都是软链接，链接到.repo目录。
 * repo命令的时间开销比较大，因为相当于对repo管理下的每个Git库都遍历执行同样的操作。如果只修改一个Git库，可以只下载单个Git库的此产品分支，修改后用git命令提交，节约下载和执行repo命令的时间。
 * 整套代码根目录下的文件放在哪个Git库，如mm.sh mk_aliphone.sh，这些文件是放在单个Git库的，然后repo下载的时候拷贝到根目录，如果要修改这些文件，必须到对应的Git目录下修改和提交，在根目录下提交无效。
-
-
-## 项目可用到
-git branch 转到自己的分支   
-git branch -a 查看所有分支
-yunos/dev_mt6735_ph5.0.2_yunovo_tron_t8_dynamic   
-cd - 转到根目录下   
-repo start --all "分支名" repo到该分支    
-cd - 回退到仓库目录
-git branch 查看分支   
-git branch -a   
-git pull 从远程仓库拉取   
-git status . 查看该分支上的变化   
-rm -rf （.Android.mk.swp） 舍弃本地变化   
-git add () 加上某个文件   
-git log . 查看提交记录   
-git reset HEAD^ 回退到前一版本   
-git commit -m "BugID:8557502:initial dynamic background"   
-git push yunos HEAD:refs/for/dev_mt6735_ph5.0.2_yunovo_tron_t8_dynamic  push到该分支上   
 
