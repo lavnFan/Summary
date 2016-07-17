@@ -50,10 +50,14 @@ public class FrameActivity extends Activity {
     private void setFrameCodeAnimation() {
         frameCodeAnim = new AnimationDrawable();
         frameCodeAnim.setOneShot(false);  //true：动画只显示一次，这里设置为false，持续显示动画
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_01),200);
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_02),200);
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_03),200);
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_04),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_1),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_2),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_3),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_4),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_5),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_6),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_7),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_8),60);
         mFrameCodeIv.setImageDrawable(frameCodeAnim);
         frameCodeAnim.start();
     }

@@ -7,9 +7,9 @@
 * 动画需要注意的地方？
 
 ## 动画框架
-**[View Animation]()**   
-* **[Frame](##Frame动画)**
-* **[Tween](##Tween动画)**
+**[View Animation](###)**   
+* **[Frame](#Frame动画)**
+* **[Tween](#Tween动画)**
 
 **[Property Animation](##Property动画)**
 
@@ -22,7 +22,7 @@
 * Java: R.drawable.filename
 * XML: @[package:]drawable.filename
 
-
+```
 	<?xml version="1.0" encoding="utf-8"?>
 	<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
    	android:oneshot=["true" | "false"] >
@@ -30,28 +30,26 @@
 		android:drawable="@[package:]drawable/drawable_resource_name"
 		android:duration="integer" />
 	</animation-list>
+```
 
 ### XML定义动画
 * 定义一个animation-list，设置一组动画图片及持续时间
 * 创建AnimationDrwable，读取动画
 * 为View设置该动画
 
-
-	<?xml version="1.0" encoding="utf-8"?>   
-	<animation-list xmlns:android="http://schemas.android.com/apk/res/android">   
-    <item   
-        android:drawable="@drawable/dynamic_road_running_01"   
-        android:duration="200" />   
-    <item   
-        android:drawable="@drawable/dynamic_road_running_02"   
-        android:duration="200" />   
-    <item   
-        android:drawable="@drawable/dynamic_road_running_03"   
-        android:duration="200" />   
-    <item   
-        android:drawable="@drawable/dynamic_road_running_04"   
-        android:duration="200" />   
-	</animation-list>   
+```
+	<?xml version="1.0" encoding="utf-8"?>
+	<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/progress_1" android:duration="200"/>
+    <item android:drawable="@drawable/progress_2" android:duration="200"/>
+    <item android:drawable="@drawable/progress_3" android:duration="200"/>
+    <item android:drawable="@drawable/progress_4" android:duration="200"/>
+    <item android:drawable="@drawable/progress_5" android:duration="200"/>
+    <item android:drawable="@drawable/progress_6" android:duration="200"/>
+    <item android:drawable="@drawable/progress_7" android:duration="200"/>
+    <item android:drawable="@drawable/progress_8" android:duration="60"/>
+	</animation-list>
+```
 
 `FrameActivity.java`中
 
@@ -67,23 +65,28 @@
 
 
 ### Java代码实现动画
-	 /**
+    /**
      * 代码控制，依次添加帧动画的每一帧图片
      */
     private void setFrameCodeAnimation() {
         frameCodeAnim = new AnimationDrawable();
         frameCodeAnim.setOneShot(false);  //true：动画只显示一次，这里设置为false，持续显示动画
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_01),200);
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_02),200);
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_03),200);
-        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.dynamic_road_running_04),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_1),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_2),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_3),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_4),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_5),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_6),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_7),200);
+        frameCodeAnim.addFrame(getResources().getDrawable(R.drawable.progress_8),60);
         mFrameCodeIv.setImageDrawable(frameCodeAnim);
         frameCodeAnim.start();
     }
 
 ### 实现效果
 
-<img src="http://7xrhn4.com1.z0.glb.clouddn.com/FrameAnimator.gif" alt="帧动画" align=center />
+<img src="http://7xrhn4.com1.z0.glb.clouddn.com/Frame.gif" alt="帧动画" align=center width="320" height="480" />
+
 
 ## Tween动画
 
@@ -96,7 +99,7 @@
 * Java: R.anim.filename    
 * XML: @[package:]anim/filename    
 
-
+```
 	<?xml version="1.0" encoding="utf-8"?>
 	<set xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:interpolator="@[package:]anim/interpolator_resource"
@@ -125,7 +128,7 @@
 		...
 	    </set>
 	</set>
-
+```
 
 ### 动画种类
 #### TranslateAnimation
@@ -193,7 +196,7 @@ Float值表示，代表动画开始和结束时透明度，0.0表示完全透明
 * 定义set集合，及四种动画效果
 * 在代码中读取该动画，再为某个view设置
 
-
+```
 	<set xmlns:android="http://schemas.android.com/apk/res/android"
     android:fillAfter="false"    <--!动画结束后View是否停留在结束位置-->
     android:zAdjustment="normal">
@@ -226,7 +229,7 @@ Float值表示，代表动画开始和结束时透明度，0.0表示完全透明
         android:toAlpha="1.0" />
 
 	</set>
-
+```
 
 代码中为某个view设置该动画，并开始播放
 
@@ -246,6 +249,7 @@ Float值表示，代表动画开始和结束时透明度，0.0表示完全透明
 编译后的资源为：ValueAnimator, ObjectAnimator, or AnimatorSet。　   
 XML文件的根元素必须为set,可以嵌套。
 
+```
 	<set
   		android:ordering=["together" | "sequentially"]>
 
@@ -272,6 +276,7 @@ XML文件的根元素必须为set,可以嵌套。
         ...
     </set>
 	</set>
+```
 
 ### 属性说明
 * ordering：设置子动画启动方式是先后有序的还是同时
