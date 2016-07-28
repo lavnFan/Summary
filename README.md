@@ -4,9 +4,9 @@ Summary about Java, Android and so on.
 ## Article
 ### [Handler](https://github.com/lavnFan/Summary/tree/master/Handler)
 * [Handler 系列一：如何使用](https://github.com/lavnFan/Summary/blob/master/Handler/Handler_1.md)   
-* [Handler 系列二：怎么通信]()
+* [Handler 系列二：怎么通信](https://github.com/lavnFan/Summary/blob/master/Handler/Handler_2.md)
 
-### [Anim]()
+### [Anim](https://github.com/lavnFan/Summary/blob/master/Anim/Animator.md)
 * Frame Anim
 * Tween Anim
 * Property Anim
@@ -24,7 +24,8 @@ Summary about Java, Android and so on.
 
 ### [git-repo](https://github.com/lavnFan/Summary/blob/master/git-repo/git-repo.md)
 
-### [markdown]()
+### [markdown](https://github.com/lavnFan/Summary/blob/master/Markdown.md)
 
 ## Discussing
-* email:lavnfan@gmail.com
+* email：lavnfan@gmail.com
+* blog for now：https://segmentfault.com/u/lavnfan/articles
