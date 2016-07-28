@@ -87,7 +87,6 @@
 
 <img src="http://7xrhn4.com1.z0.glb.clouddn.com/Frame.gif" alt="帧动画" align=center width="320" height="480" />
 
-
 ## Tween动画
 
 ![动画类图](http://7xrhn4.com1.z0.glb.clouddn.com/Animation.png)
