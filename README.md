@@ -11,7 +11,7 @@ Summary about Java, Android and so on.
 * Tween Anim
 * Property Anim
 
-### [Gaussian blur](https://github.com/lavnFan/Summary/blob/master/BlurGauss/BlurGlass.md)
+### [Gaussian blur](https://github.com/lavnFan/Summary/blob/master/GaussianBlur/GaussianBlur.md)
 * 取视频流的某个数据帧
 * 将图片进行压缩
 * 对图片进行高斯模糊
